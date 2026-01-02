@@ -626,6 +626,29 @@ function createPositionSelector(
     { h: 'right', v: 'bottom', label: '↘' }
   ];
 
+  // Speichere Referenzen zu den Buttons
+  const buttons: Map<string, HTMLButtonElement> = new Map();
+  let currentPos = { ...currentPosition };
+
+  // Funktion zum Aktualisieren der visuellen Hervorhebung
+  const updateActiveButton = (newPosition: MatrixPosition) => {
+    currentPos = { ...newPosition };
+    buttons.forEach((btn, key) => {
+      const [h, v] = key.split('|');
+      const isActive = h === currentPos.horizontal && v === currentPos.vertical;
+      
+      if (isActive) {
+        btn.style.backgroundColor = 'var(--primary-color)';
+        btn.style.color = 'white';
+        btn.style.borderColor = 'var(--primary-hover)';
+      } else {
+        btn.style.backgroundColor = '#f5f5f5';
+        btn.style.color = '#333';
+        btn.style.borderColor = '#ddd';
+      }
+    });
+  };
+
   positions.forEach((pos) => {
     const btn = document.createElement('button');
     btn.type = 'button';
@@ -641,28 +664,37 @@ function createPositionSelector(
     btn.style.justifyContent = 'center';
     btn.style.transition = 'all 0.2s';
 
+    // Speichere Button-Referenz
+    const key = `${pos.h}|${pos.v}`;
+    buttons.set(key, btn);
+
     // Aktive Position hervorheben
     if (pos.h === currentPosition.horizontal && pos.v === currentPosition.vertical) {
-      btn.style.backgroundColor = '#4a90e2';
+      btn.style.backgroundColor = 'var(--primary-color)';
       btn.style.color = 'white';
-      btn.style.borderColor = '#357abd';
+      btn.style.borderColor = 'var(--primary-hover)';
     } else {
       btn.style.backgroundColor = '#f5f5f5';
       btn.style.color = '#333';
+      btn.style.borderColor = '#ddd';
     }
 
     btn.addEventListener('click', () => {
-      onChange({ horizontal: pos.h, vertical: pos.v });
+      const newPosition = { horizontal: pos.h, vertical: pos.v };
+      onChange(newPosition);
+      updateActiveButton(newPosition);
     });
 
     btn.addEventListener('mouseenter', () => {
-      if (!(pos.h === currentPosition.horizontal && pos.v === currentPosition.vertical)) {
+      const isActive = pos.h === currentPos.horizontal && pos.v === currentPos.vertical;
+      if (!isActive) {
         btn.style.backgroundColor = '#e0e0e0';
       }
     });
 
     btn.addEventListener('mouseleave', () => {
-      if (!(pos.h === currentPosition.horizontal && pos.v === currentPosition.vertical)) {
+      const isActive = pos.h === currentPos.horizontal && pos.v === currentPos.vertical;
+      if (!isActive) {
         btn.style.backgroundColor = '#f5f5f5';
       }
     });
