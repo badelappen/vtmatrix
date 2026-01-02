@@ -255,12 +255,12 @@ const translations: Record<Language, Translations> = {
         content: `Angaben gemäß § 5 TMG
 
 Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
-[Muster Name]
-[Muster Straße]
-[Muster PLZ] [Muster Ort]
+Axel Evers
+Bergkammstraße 34
+30453 Hannover
 
 Kontakt:
-E-Mail: [Muster E-Mail]
+E-Mail: {EMAIL_PLACEHOLDER}
 
 Haftungsausschluss:
 Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
@@ -415,12 +415,12 @@ Diese Website verwendet keine Tracking-Cookies, keine Analyse-Tools und keine We
         content: `Information according to § 5 TMG
 
 Responsible for content according to § 55 Abs. 2 RStV:
-[Sample Name]
-[Sample Street]
-[Sample ZIP] [Sample City]
+Axel Evers
+Bergkammstraße 34
+30453 Hannover, Germany
 
 Contact:
-Email: [Sample Email]
+Email: {EMAIL_PLACEHOLDER}
 
 Disclaimer:
 The contents of our pages have been created with the greatest care. However, we cannot guarantee the accuracy, completeness and timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with general law pursuant to § 7 Abs.1 TMG.

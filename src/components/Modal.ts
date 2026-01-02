@@ -43,8 +43,16 @@ export function showModal(type: ModalType): void {
   const content = document.createElement('div');
   content.className = 'modal-content';
   
+  // Build email address dynamically to avoid bot scraping
+  const buildEmail = (): string => {
+    const parts = ['vtmatrix', '@', 'asteroid-zone', '.', 'com'];
+    return parts.join('');
+  };
+  
   // Split content by lines and create paragraphs
-  const contentText = t.legal[type].content;
+  let contentText = t.legal[type].content;
+  const emailAddress = buildEmail();
+  
   const paragraphs = contentText.split('\n\n').filter(p => p.trim());
   
   paragraphs.forEach(paragraph => {
@@ -59,9 +67,42 @@ export function showModal(type: ModalType): void {
       heading.style.fontWeight = '600';
       content.appendChild(heading);
     } else {
-      p.textContent = paragraph.trim();
-      p.style.marginBottom = '15px';
-      p.style.lineHeight = '1.6';
+      // Check if paragraph contains email placeholder
+      if (paragraph.includes('{EMAIL_PLACEHOLDER}')) {
+        // Split paragraph to handle email separately
+        const parts = paragraph.split('{EMAIL_PLACEHOLDER}');
+        p.style.marginBottom = '15px';
+        p.style.lineHeight = '1.6';
+        
+        // Add text before email
+        if (parts[0]) {
+          p.appendChild(document.createTextNode(parts[0].trim()));
+        }
+        
+        // Create email link (built dynamically, not in static text)
+        const emailLink = document.createElement('a');
+        emailLink.href = 'mailto:' + emailAddress;
+        emailLink.textContent = emailAddress;
+        emailLink.style.color = 'var(--primary-color)';
+        emailLink.style.textDecoration = 'none';
+        emailLink.style.fontWeight = '500';
+        emailLink.addEventListener('mouseenter', () => {
+          emailLink.style.textDecoration = 'underline';
+        });
+        emailLink.addEventListener('mouseleave', () => {
+          emailLink.style.textDecoration = 'none';
+        });
+        p.appendChild(emailLink);
+        
+        // Add text after email
+        if (parts[1]) {
+          p.appendChild(document.createTextNode(parts[1].trim()));
+        }
+      } else {
+        p.textContent = paragraph.trim();
+        p.style.marginBottom = '15px';
+        p.style.lineHeight = '1.6';
+      }
       content.appendChild(p);
     }
   });

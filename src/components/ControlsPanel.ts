@@ -257,15 +257,26 @@ export function createControlsPanel(
   // Titel & Untertitel
   const titleSection = createSection(t.sections.titleSubtitle);
   
+  // Funktion zum Aktualisieren der Sichtbarkeit (wird später definiert, aber hier deklariert)
+  let updateTitleVisibility: ((isEnabled: boolean) => void) | null = null;
+  
+  // Toggle erstellen
   const showTitleToggle = createToggle(
     t.titleSubtitle.showTitle,
     config.showTitle || false,
-    (val) => onConfigChange({ showTitle: val })
+    (val) => {
+      onConfigChange({ showTitle: val });
+      // Aktualisiere sofort die Sichtbarkeit
+      if (updateTitleVisibility) {
+        updateTitleVisibility(val);
+      }
+    }
   );
   titleSection.appendChild(showTitleToggle);
-
+  
   // Titel Input
   const titleInputContainer = document.createElement('div');
+  titleInputContainer.className = 'title-input-container';
   titleInputContainer.style.display = config.showTitle ? 'block' : 'none';
   titleInputContainer.style.marginTop = '8px';
 
@@ -306,6 +317,7 @@ export function createControlsPanel(
 
   // Beschreibung Textarea
   const subtitleInputContainer = document.createElement('div');
+  subtitleInputContainer.className = 'subtitle-input-container';
   subtitleInputContainer.style.display = config.showTitle ? 'block' : 'none';
   subtitleInputContainer.style.marginTop = '8px';
 
@@ -348,6 +360,7 @@ export function createControlsPanel(
 
   // Schriftgrößen und Abstände für Titel/Untertitel
   const titleSettingsContainer = document.createElement('div');
+  titleSettingsContainer.className = 'title-settings-container';
   titleSettingsContainer.style.display = config.showTitle ? 'block' : 'none';
   titleSettingsContainer.style.marginTop = '12px';
 
@@ -389,14 +402,26 @@ export function createControlsPanel(
   fontSizeLabelSizeInput.style.marginTop = '12px';
   titleSettingsContainer.appendChild(fontSizeLabelSizeInput);
 
-  // Zeige/Verstecke Input-Felder basierend auf Toggle
-  const titleToggleInput = showTitleToggle.querySelector('input[type="checkbox"]') as HTMLInputElement;
-  titleToggleInput.addEventListener('change', () => {
-    const isEnabled = titleToggleInput.checked;
+  // Funktion zum Aktualisieren der Sichtbarkeit definieren
+  updateTitleVisibility = (isEnabled: boolean) => {
     titleInputContainer.style.display = isEnabled ? 'block' : 'none';
     subtitleInputContainer.style.display = isEnabled ? 'block' : 'none';
     titleSettingsContainer.style.display = isEnabled ? 'block' : 'none';
-  });
+  };
+  
+  // Initiale Sichtbarkeit setzen
+  updateTitleVisibility(config.showTitle || false);
+  
+  // Zusätzlicher Event-Listener für direkte Checkbox-Änderungen (falls nötig)
+  const titleToggleInput = showTitleToggle.querySelector('input[type="checkbox"]') as HTMLInputElement;
+  if (titleToggleInput) {
+    titleToggleInput.addEventListener('change', () => {
+      const isEnabled = titleToggleInput.checked;
+      if (updateTitleVisibility) {
+        updateTitleVisibility(isEnabled);
+      }
+    });
+  }
 
   titleSection.appendChild(titleInputContainer);
   titleSection.appendChild(subtitleInputContainer);
