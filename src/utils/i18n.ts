@@ -113,6 +113,37 @@ export interface Translations {
     en: string;
     switchLanguage: string;
   };
+  
+  // Header
+  header: {
+    title: string;
+    description: string;
+  };
+  
+  // Footer
+  footer: {
+    imprint: string;
+    privacy: string;
+    cookies: string;
+    copyright: string;
+  };
+  
+  // Legal Content
+  legal: {
+    imprint: {
+      title: string;
+      content: string;
+    };
+    privacy: {
+      title: string;
+      content: string;
+    };
+    cookies: {
+      title: string;
+      content: string;
+    };
+    close: string;
+  };
 }
 
 const translations: Record<Language, Translations> = {
@@ -208,6 +239,73 @@ const translations: Record<Language, Translations> = {
       en: 'English',
       switchLanguage: 'Sprache',
     },
+    header: {
+      title: 'Visuelles Training für ADHS',
+      description: 'Eine Web-Anwendung zur Anzeige von Zahlen-/Symbol-Matrizen für visuelles Training. Entwickelt speziell für das Training von Kindern mit ADHS.',
+    },
+    footer: {
+      imprint: 'Impressum',
+      privacy: 'Datenschutzerklärung',
+      cookies: 'Cookie-Richtlinie',
+      copyright: '© 2024 Visuelles Training App. Alle Rechte vorbehalten.',
+    },
+    legal: {
+      imprint: {
+        title: 'Impressum',
+        content: `Angaben gemäß § 5 TMG
+
+Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
+[Muster Name]
+[Muster Straße]
+[Muster PLZ] [Muster Ort]
+
+Kontakt:
+E-Mail: [Muster E-Mail]
+
+Haftungsausschluss:
+Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+
+Haftung für Links:
+Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.`,
+      },
+      privacy: {
+        title: 'Datenschutzerklärung',
+        content: `1. Datenschutz auf einen Blick
+
+Allgemeine Hinweise
+Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
+
+Datenerfassung auf dieser Website
+Diese Website speichert Daten lokal in Ihrem Browser (LocalStorage), um Ihre Einstellungen zu speichern. Es werden keine personenbezogenen Daten an Server übertragen oder gespeichert.
+
+2. Hosting
+Diese Website wird als statische Website gehostet. Es erfolgt keine Server-seitige Datenspeicherung.
+
+3. Ihre Rechte
+Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Hierzu sowie zu weiteren Fragen zum Datenschutz können Sie sich jederzeit an uns wenden.
+
+4. Widerspruch gegen Datenerhebung
+Sie können die Speicherung von Daten in Ihrem Browser jederzeit deaktivieren, indem Sie die LocalStorage-Funktion in Ihren Browser-Einstellungen deaktivieren.`,
+      },
+      cookies: {
+        title: 'Cookie-Richtlinie',
+        content: `Diese Website verwendet keine Cookies im herkömmlichen Sinne.
+
+LocalStorage
+Diese Anwendung verwendet die LocalStorage-Funktion Ihres Browsers, um Ihre Einstellungen lokal auf Ihrem Gerät zu speichern. Diese Daten werden ausschließlich auf Ihrem Gerät gespeichert und nicht an Server übertragen.
+
+Gespeicherte Daten:
+- Ihre Konfigurationseinstellungen (Matrix-Größe, Schriftart, etc.)
+- Ihre Sprachauswahl (Deutsch/Englisch)
+
+Löschung der Daten:
+Sie können die gespeicherten Daten jederzeit löschen, indem Sie in Ihren Browser-Einstellungen die LocalStorage-Daten für diese Website löschen. Die Daten werden automatisch gelöscht, wenn Sie Ihre Browser-Daten löschen.
+
+Keine Tracking-Cookies:
+Diese Website verwendet keine Tracking-Cookies, keine Analyse-Tools und keine Werbe-Cookies.`,
+      },
+      close: 'Schließen',
+    },
   },
   en: {
     sections: {
@@ -300,6 +398,73 @@ const translations: Record<Language, Translations> = {
       de: 'Deutsch',
       en: 'English',
       switchLanguage: 'Language',
+    },
+    header: {
+      title: 'Visual Training for ADHD',
+      description: 'A web application for displaying number/symbol matrices for visual training. Developed specifically for training children with ADHD.',
+    },
+    footer: {
+      imprint: 'Imprint',
+      privacy: 'Privacy Policy',
+      cookies: 'Cookie Policy',
+      copyright: '© 2024 Visual Training App. All rights reserved.',
+    },
+    legal: {
+      imprint: {
+        title: 'Imprint',
+        content: `Information according to § 5 TMG
+
+Responsible for content according to § 55 Abs. 2 RStV:
+[Sample Name]
+[Sample Street]
+[Sample ZIP] [Sample City]
+
+Contact:
+Email: [Sample Email]
+
+Disclaimer:
+The contents of our pages have been created with the greatest care. However, we cannot guarantee the accuracy, completeness and timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with general law pursuant to § 7 Abs.1 TMG.
+
+Liability for Links:
+Our offer contains links to external websites of third parties, on whose contents we have no influence. The respective provider or operator of the pages is always responsible for the contents of the linked pages.`,
+      },
+      privacy: {
+        title: 'Privacy Policy',
+        content: `1. Privacy at a Glance
+
+General Information
+The following information provides a simple overview of what happens to your personal data when you visit this website. Personal data is any data with which you can be personally identified.
+
+Data Collection on this Website
+This website stores data locally in your browser (LocalStorage) to save your settings. No personal data is transmitted to or stored on servers.
+
+2. Hosting
+This website is hosted as a static website. No server-side data storage takes place.
+
+3. Your Rights
+You have the right at any time to receive information free of charge about the origin, recipient and purpose of your stored personal data. You also have the right to request the correction or deletion of this data. For this purpose, as well as for further questions about data protection, you can contact us at any time.
+
+4. Objection to Data Collection
+You can disable the storage of data in your browser at any time by disabling the LocalStorage function in your browser settings.`,
+      },
+      cookies: {
+        title: 'Cookie Policy',
+        content: `This website does not use cookies in the conventional sense.
+
+LocalStorage
+This application uses your browser's LocalStorage function to store your settings locally on your device. This data is stored exclusively on your device and is not transmitted to servers.
+
+Stored Data:
+- Your configuration settings (matrix size, font, etc.)
+- Your language selection (German/English)
+
+Deletion of Data:
+You can delete the stored data at any time by deleting the LocalStorage data for this website in your browser settings. The data will be automatically deleted when you clear your browser data.
+
+No Tracking Cookies:
+This website does not use tracking cookies, analytics tools, or advertising cookies.`,
+      },
+      close: 'Close',
     },
   },
 };

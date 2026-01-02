@@ -2,6 +2,9 @@ import { AppConfig } from './types';
 import { generateMatrix } from './utils/matrixGenerator';
 import { createMatrixDisplay } from './components/MatrixDisplay';
 import { createControlsPanel } from './components/ControlsPanel';
+import { createHeader, updateHeader } from './components/Header';
+import { createFooter, updateFooter } from './components/Footer';
+import { updateModal } from './components/Modal';
 import { exportToPDF } from './utils/pdfExporter';
 import { initLanguage, setLanguage, Language } from './utils/i18n';
 
@@ -11,21 +14,37 @@ export class App {
   private config: AppConfig;
   private matrixContainer: HTMLElement;
   private controlsContainer: HTMLElement;
+  private mainContentContainer: HTMLElement;
   private currentMatrix: ReturnType<typeof createMatrixDisplay> | null = null;
   private currentMatrixData: Matrix | null = null;
 
   constructor(container: HTMLElement) {
     // Initialize language
-    initLanguage();
+    const lang = initLanguage();
+    document.documentElement.lang = lang;
     
     this.config = this.getDefaultConfig();
+    
+    // Create header
+    const header = createHeader();
+    container.appendChild(header);
+    
+    // Create main content container
+    this.mainContentContainer = document.createElement('div');
+    this.mainContentContainer.className = 'main-content';
+    
     this.matrixContainer = document.createElement('div');
     this.matrixContainer.className = 'matrix-container';
     this.controlsContainer = document.createElement('div');
     this.controlsContainer.className = 'controls-container';
 
-    container.appendChild(this.controlsContainer);
-    container.appendChild(this.matrixContainer);
+    this.mainContentContainer.appendChild(this.controlsContainer);
+    this.mainContentContainer.appendChild(this.matrixContainer);
+    container.appendChild(this.mainContentContainer);
+    
+    // Create footer
+    const footer = createFooter();
+    container.appendChild(footer);
 
     this.loadConfigFromStorage();
     this.initialize();
@@ -140,8 +159,15 @@ export class App {
 
   private handleLanguageChange(lang: Language): void {
     setLanguage(lang);
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
     // Re-render controls to update all text
     this.renderControls();
+    // Update header and footer
+    updateHeader();
+    updateFooter();
+    // Update modal if open
+    updateModal();
   }
 
   private renderMatrix(): void {
