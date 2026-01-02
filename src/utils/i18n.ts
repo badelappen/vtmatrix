@@ -118,6 +118,23 @@ export interface Translations {
   header: {
     title: string;
     description: string;
+    learnMore: string;
+  };
+  
+  // Visual Training Info
+  visualTraining: {
+    title: string;
+    whatIs: string;
+    whatIsContent: string;
+    keySkills: string;
+    keySkillsList: string[];
+    matrixTraining: string;
+    matrixTrainingContent: string;
+    redGreenGlasses: string;
+    redGreenGlassesContent: string;
+    applications: string;
+    applicationsList: string[];
+    close: string;
   };
   
   // Footer
@@ -231,8 +248,8 @@ const translations: Record<Language, Translations> = {
       subtitlePlaceholder: 'z.B. Übung 1 - 1,5 Minuten pro Auge',
     },
     buttons: {
-      newMatrix: '🔄 Neue Matrix',
-      exportPDF: '📄 Als PDF exportieren',
+      newMatrix: 'Neue Matrix',
+      exportPDF: 'Als PDF exportieren',
     },
     language: {
       de: 'Deutsch',
@@ -240,8 +257,36 @@ const translations: Record<Language, Translations> = {
       switchLanguage: 'Sprache',
     },
     header: {
-      title: 'Visuelles Training für ADHS',
-      description: 'Eine Web-Anwendung zur Anzeige von Zahlen-/Symbol-Matrizen für visuelles Training. Entwickelt speziell für das Training von Kindern mit ADHS.',
+      title: 'Matrizen-Generator für Visuelles Training',
+      description: 'Erstellen Sie individuelle Zahlen- und Symbol-Matrizen für visuelles Training. Professionelles Tool zur Generierung von Trainingsmaterialien mit verschiedenen Symbol-Sets, Layout-Formen und Rot-Grün-Brille Modus. Exportieren Sie hochauflösende PDFs für den Druck.',
+      learnMore: 'Mehr über Visuelles Training erfahren',
+    },
+    visualTraining: {
+      title: 'Was ist Visuelles Training?',
+      whatIs: 'Grundlagen',
+      whatIsContent: 'Visuelles Training (auch Vision Therapy oder Visual Therapy) ist eine Form der Therapie, die spezifische Übungen verwendet, um visuelle Fähigkeiten und Verarbeitungsprozesse zu verbessern. Es trainiert das Gehirn und die Augen, effektiver zusammenzuarbeiten.',
+      keySkills: 'Trainierte visuelle Fähigkeiten',
+      keySkillsList: [
+        'Selektive Aufmerksamkeit: Fokussierung auf spezifische visuelle Elemente bei gleichzeitiger Filterung von Ablenkungen',
+        'Visuelle Verarbeitung: Wie das Gehirn visuelle Informationen interpretiert und verarbeitet',
+        'Mustererkennung: Identifizierung und Verständnis visueller Muster und Beziehungen',
+        'Visuelles Arbeitsgedächtnis: Beibehaltung und Manipulation visueller Informationen im Kurzzeitgedächtnis',
+        'Visuelle Diskrimination: Unterscheidung zwischen ähnlichen visuellen Elementen',
+        'Konzentration: Aufrechterhaltung einer anhaltenden visuellen Fokussierung über Zeit'
+      ],
+      matrixTraining: 'Matrix-Training',
+      matrixTrainingContent: 'Matrix-basiertes visuelles Training verwendet Raster aus Zahlen, Symbolen oder Mustern, um diese visuellen Fähigkeiten zu trainieren. Durch systematisches Arbeiten mit Matrizen können Personen ihre visuelle Verarbeitungsfähigkeit, Aufmerksamkeitsspanne und kognitive Leistung verbessern.',
+      redGreenGlasses: 'Rot-Grün-Brille Training',
+      redGreenGlassesContent: 'Rot-Grün-Brillen sind ein spezialisiertes Werkzeug in der visuellen Therapie. Beim Betrachten von Matrizen mit farbgefilterten Elementen muss das Gehirn aktiv zwischen roten und grünen Elementen unterscheiden. Dies trainiert die selektive Aufmerksamkeit durch erzwungene fokussierte visuelle Verarbeitung. Die zufällige Verteilung ist besonders effektiv, da sie eine konstante visuelle Diskrimination erfordert. Strukturierte Muster (Schachbrett, Streifen) trainieren Mustererkennung und visuelle Organisation.',
+      applications: 'Anwendungsbereiche',
+      applicationsList: [
+        'Therapie und Rehabilitation: Verwendung durch Sehtherapeuten, Ergotherapeuten und Rehabilitationsspezialisten',
+        'Bildungsunterstützung: Verbesserung visueller Fähigkeiten, die Lernen und Lesen unterstützen',
+        'Performance-Training: Verwendung durch Sportler und Fachkräfte zur Verbesserung der visuellen Verarbeitung',
+        'Hausübungen: Druckbare Materialien für kontinuierliche Praxis und Fortschrittsverfolgung',
+        'Forschung: Werkzeug für visuelle Wahrnehmungsstudien und kognitives Training'
+      ],
+      close: 'Schließen',
     },
     footer: {
       imprint: 'Impressum',
@@ -391,8 +436,8 @@ Diese Website verwendet keine Tracking-Cookies, keine Analyse-Tools und keine We
       subtitlePlaceholder: 'e.g. Exercise 1 - 1.5 minutes per eye',
     },
     buttons: {
-      newMatrix: '🔄 New Matrix',
-      exportPDF: '📄 Export as PDF',
+      newMatrix: 'New Matrix',
+      exportPDF: 'Export as PDF',
     },
     language: {
       de: 'Deutsch',
@@ -400,8 +445,36 @@ Diese Website verwendet keine Tracking-Cookies, keine Analyse-Tools und keine We
       switchLanguage: 'Language',
     },
     header: {
-      title: 'Visual Training for ADHD',
-      description: 'A web application for displaying number/symbol matrices for visual training. Developed specifically for training children with ADHD.',
+      title: 'Matrix Generator for Visual Training',
+      description: 'Create custom number and symbol matrices for visual training. Professional tool for generating training materials with various symbol sets, layout shapes, and red-green glasses mode. Export high-resolution PDFs for printing.',
+      learnMore: 'Learn more about Visual Training',
+    },
+    visualTraining: {
+      title: 'What is Visual Training?',
+      whatIs: 'Basics',
+      whatIsContent: 'Visual training (also known as vision therapy or visual therapy) is a form of therapy that uses specific exercises to improve visual skills and processing. It involves training the brain and eyes to work together more effectively.',
+      keySkills: 'Trained Visual Skills',
+      keySkillsList: [
+        'Selective Attention: Focus on specific visual elements while filtering out distractions',
+        'Visual Processing: How the brain interprets and makes sense of visual information',
+        'Pattern Recognition: Identifying and understanding visual patterns and relationships',
+        'Visual Working Memory: Retaining and manipulating visual information in short-term memory',
+        'Visual Discrimination: Distinguishing between similar visual elements',
+        'Concentration: Maintaining sustained visual focus over time'
+      ],
+      matrixTraining: 'Matrix Training',
+      matrixTrainingContent: 'Matrix-based visual training uses grids of numbers, symbols, or patterns to train these visual skills. By systematically working through matrices, individuals can improve their visual processing abilities, attention span, and cognitive performance.',
+      redGreenGlasses: 'Red-Green Glasses Training',
+      redGreenGlassesContent: 'Red-green glasses are a specialized tool used in visual therapy. When viewing matrices with color-filtered elements, the brain must actively distinguish between red and green elements. This trains selective attention by forcing focused visual processing. Random distribution is particularly effective as it requires constant visual discrimination. Structured patterns (checkerboard, stripes) train pattern recognition and visual organization.',
+      applications: 'Application Areas',
+      applicationsList: [
+        'Therapy and Rehabilitation: Used by vision therapists, occupational therapists, and rehabilitation specialists',
+        'Educational Support: Helps improve visual skills that support learning and reading',
+        'Performance Training: Used by athletes and professionals to enhance visual processing',
+        'Home Practice: Printable materials for continued practice and progress tracking',
+        'Research: Tool for visual perception studies and cognitive training research'
+      ],
+      close: 'Close',
     },
     footer: {
       imprint: 'Imprint',

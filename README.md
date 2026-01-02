@@ -1,6 +1,6 @@
-# Visual Training App for ADHD
+# Matrix Generator for Visual Training
 
-A web application for displaying number/symbol matrices for visual training. Developed specifically for training children with ADHD.
+A professional tool for creating custom number and symbol matrices for visual training. Generate personalized training materials with various symbol sets, layout shapes, and red-green glasses mode. Export high-resolution PDFs for printing.
 
 ## Features
 
@@ -74,17 +74,37 @@ The built files are located in the `dist/` folder.
    - Choose matrix position on the page (9 positions)
    - Add title and subtitle
    - Toggle font size display
-10. **Generate New Matrix**: Click on "🔄 New Matrix"
-11. **Export as PDF**: Click on "📄 Export as PDF"
+10. **Generate New Matrix**: Click on "New Matrix"
+11. **Export as PDF**: Click on "Export as PDF"
 
-## Scientific Background
+## What is Visual Training?
 
-Red-green glasses are used in visual therapy to:
-- Train **selective attention** (important for ADHD)
-- Improve **visual processing**
-- Sharpen **pattern recognition**
+Visual training (also known as vision therapy or visual therapy) is a form of therapy that uses specific exercises to improve visual skills and processing. It involves training the brain and eyes to work together more effectively.
 
-**Random distribution** is scientifically best proven for ADHD training, as it forces the brain to distinguish between red/green and thus trains selective attention.
+### Key Visual Skills Trained:
+- **Selective Attention**: The ability to focus on specific visual elements while filtering out distractions
+- **Visual Processing**: How the brain interprets and makes sense of visual information
+- **Pattern Recognition**: Identifying and understanding visual patterns and relationships
+- **Visual Working Memory**: Retaining and manipulating visual information in short-term memory
+- **Visual Discrimination**: Distinguishing between similar visual elements
+- **Concentration**: Maintaining sustained visual focus over time
+
+### Matrix Training:
+Matrix-based visual training uses grids of numbers, symbols, or patterns to train these visual skills. By systematically working through matrices, individuals can improve their visual processing abilities, attention span, and cognitive performance.
+
+### Red-Green Glasses Training:
+Red-green glasses are a specialized tool used in visual therapy. When viewing matrices with color-filtered elements:
+- The brain must actively distinguish between red and green elements
+- This trains **selective attention** by forcing focused visual processing
+- **Random distribution** is particularly effective as it requires constant visual discrimination
+- Structured patterns (checkerboard, stripes) train pattern recognition and visual organization
+
+### Application Areas:
+- **Therapy and Rehabilitation**: Used by vision therapists, occupational therapists, and rehabilitation specialists
+- **Educational Support**: Helps improve visual skills that support learning and reading
+- **Performance Training**: Used by athletes and professionals to enhance visual processing
+- **Home Practice**: Printable materials for continued practice and progress tracking
+- **Research**: Tool for visual perception studies and cognitive training research
 
 ## Technology Stack
 

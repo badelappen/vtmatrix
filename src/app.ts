@@ -5,6 +5,7 @@ import { createControlsPanel } from './components/ControlsPanel';
 import { createHeader, updateHeader } from './components/Header';
 import { createFooter, updateFooter } from './components/Footer';
 import { updateModal } from './components/Modal';
+import { updateVisualTrainingInfo } from './components/VisualTrainingInfo';
 import { exportToPDF } from './utils/pdfExporter';
 import { initLanguage, setLanguage, Language } from './utils/i18n';
 
@@ -167,6 +168,8 @@ export class App {
     updateFooter();
     // Update modal if open
     updateModal();
+    // Update visual training info if open
+    updateVisualTrainingInfo();
   }
 
   private renderMatrix(): void {

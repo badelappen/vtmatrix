@@ -1,6 +1,7 @@
 import { AppConfig, SymbolSetName, LayoutShape, ColorDistributionMode, PaperFormat, FontStyle, Orientation, MatrixPosition, MatrixPositionH, MatrixPositionV } from '../types';
 import { getSymbolSetLabels } from '../utils/symbolSets';
 import { getTranslations, Language, getLanguage } from '../utils/i18n';
+import { createRefreshIcon, createPDFIcon } from '../utils/icons';
 
 export function createControlsPanel(
   config: AppConfig,
@@ -432,13 +433,17 @@ export function createControlsPanel(
   buttonSection.className = 'button-section';
 
   const regenerateBtn = document.createElement('button');
-  regenerateBtn.textContent = t.buttons.newMatrix;
   regenerateBtn.className = 'btn btn-primary';
+  const refreshIcon = createRefreshIcon();
+  regenerateBtn.appendChild(refreshIcon);
+  regenerateBtn.appendChild(document.createTextNode(t.buttons.newMatrix));
   regenerateBtn.addEventListener('click', onRegenerate);
 
   const exportBtn = document.createElement('button');
-  exportBtn.textContent = t.buttons.exportPDF;
   exportBtn.className = 'btn btn-secondary';
+  const pdfIcon = createPDFIcon();
+  exportBtn.appendChild(pdfIcon);
+  exportBtn.appendChild(document.createTextNode(t.buttons.exportPDF));
   exportBtn.addEventListener('click', onExportPDF);
 
   buttonSection.appendChild(regenerateBtn);
