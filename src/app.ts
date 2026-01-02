@@ -15,7 +15,6 @@ export class App {
   private matrixContainer: HTMLElement;
   private controlsContainer: HTMLElement;
   private mainContentContainer: HTMLElement;
-  private currentMatrix: ReturnType<typeof createMatrixDisplay> | null = null;
   private currentMatrixData: Matrix | null = null;
 
   constructor(container: HTMLElement) {
@@ -186,7 +185,6 @@ export class App {
     console.log('Creating new matrix display');
     // Neue Matrix mit aktueller Config erstellen
     const display = createMatrixDisplay(this.currentMatrixData, this.config);
-    this.currentMatrix = display;
     this.matrixContainer.appendChild(display);
     console.log('Matrix display appended to container');
   }

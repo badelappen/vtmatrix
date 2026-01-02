@@ -19,7 +19,7 @@ export function generateMatrix(config: AppConfig): Matrix {
     const matrixRow: MatrixCell[] = [];
     for (let col = 0; col < cols; col++) {
       const symbol = getRandomSymbol(symbolSet, customSymbols);
-      const cellFontStyle = fontStyle === 'random' ? getRandomFontStyle() : (fontStyle === 'random' ? 'normal' : fontStyle);
+      const cellFontStyle = fontStyle === 'random' ? getRandomFontStyle() : fontStyle;
       matrixRow.push({ symbol, fontStyle: cellFontStyle as 'normal' | 'bold' | 'italic' | 'boldItalic' });
     }
     matrix.push(matrixRow);

@@ -476,35 +476,6 @@ function createNumberInput(
   return container;
 }
 
-function createRangeInput(
-  label: string,
-  value: number,
-  min: number,
-  max: number,
-  onChange: (value: number) => void
-): HTMLElement {
-  const container = document.createElement('div');
-  container.className = 'control-item';
-
-  const labelEl = document.createElement('label');
-  labelEl.textContent = `${label}: ${value}px`;
-
-  const input = document.createElement('input');
-  input.type = 'range';
-  input.min = min.toString();
-  input.max = max.toString();
-  input.value = value.toString();
-  input.addEventListener('input', (e) => {
-    const val = parseInt((e.target as HTMLInputElement).value, 10);
-    labelEl.textContent = `${label}: ${val}px`;
-    onChange(val);
-  });
-
-  container.appendChild(labelEl);
-  container.appendChild(input);
-  return container;
-}
-
 function createRangeInputMM(
   label: string,
   value: number,

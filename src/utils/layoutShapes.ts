@@ -1,4 +1,4 @@
-import { LayoutShape, Matrix, MatrixCell } from '../types';
+import { LayoutShape, Matrix } from '../types';
 
 export function shouldIncludeCell(
   row: number,

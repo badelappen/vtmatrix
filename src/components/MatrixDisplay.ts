@@ -1,4 +1,4 @@
-import { Matrix, AppConfig, PaperFormat, Orientation } from '../types';
+import { Matrix, AppConfig, PaperFormat } from '../types';
 
 // Papiergrößen in mm
 const PAPER_SIZES: Record<PaperFormat, { width: number; height: number }> = {
@@ -163,7 +163,6 @@ export function createMatrixDisplay(
   const usableHeight = displayHeight - margin - footerSpace - titleSpace;
   const totalHeight = (matrix.length - 1) * (cellSizePx + gapVerticalPx) * scale + cellSizePx * scale;
   const cellSizeMm = fontSize; // In mm, wie im PDF
-  const cellSizePxScaled = cellSizeMm * MM_TO_PX * scale; // In px, skaliert
   
   // EXAKT wie im PDF: topOffset = margin + titleSpace
   const topOffset = margin + titleSpace;

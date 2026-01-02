@@ -4,9 +4,6 @@ export function assignColors(
   matrix: Matrix,
   mode: ColorDistributionMode
 ): Matrix {
-  const rows = matrix.length;
-  const cols = matrix[0]?.length || 0;
-
   return matrix.map((row, rowIdx) =>
     row.map((cell, colIdx) => {
       if (!cell.symbol) {
